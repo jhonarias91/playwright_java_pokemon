@@ -31,7 +31,7 @@ public class BaseTest {
                 .launch(new BrowserType
                         .LaunchOptions()
                         .setHeadless(IS_HEADLESS)
-                        .setSlowMo(1));
+                        .setSlowMo(0));
         this.page = browser.newPage();
         if (ENABLE_TRACING){
             page.context().tracing().start(new Tracing.StartOptions()
@@ -61,5 +61,4 @@ public class BaseTest {
         browser.close();
         playwright.close();
     }
-
 }

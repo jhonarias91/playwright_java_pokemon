@@ -1,6 +1,6 @@
 {
     "format": "Ubers",
-    "gen": "Gen 7",
+    "gen": "Gen 5",
     "team": [{
             "name": "Mewtwo",
             "item": "Eviolite",
@@ -129,5 +129,6 @@
         "spa": "stat-spa",
         "spd": "stat-spd",
         "spe": "stat-spe"
-    }
+    },
+  "teamValidationMsg": "Your team was rejected for the following reasons:\n\n- Rayquaza-Mega does not exist in Gen 5.\n- Rayquaza's move Dragon Ascent does not exist in Gen 5.\n- Rayquaza's move Dragon Ascent can't be transferred from Gen 9 to 5.\n- Groudon's move Precipice Blades does not exist in Gen 5.\n- Groudon's move Precipice Blades can't be transferred from Gen 9 to 5.\n- Darkrai can't learn Stone Edge."
 }

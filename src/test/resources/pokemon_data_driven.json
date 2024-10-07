@@ -129,5 +129,6 @@
         "spa": "stat-spa",
         "spd": "stat-spd",
         "spe": "stat-spe"
-    }
+    },
+  "teamValidationMsg": "Your team is valid for"
 }

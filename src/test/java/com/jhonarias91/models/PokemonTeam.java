@@ -9,6 +9,7 @@ public class PokemonTeam {
     private List<Pokemon> team;
     private List<String> moveInputNames;
     private Map<String, String> statInputNames;
+    private String teamValidationMsg;
 
     public String getFormat() {
         return format;
@@ -48,6 +49,14 @@ public class PokemonTeam {
 
     public void setStatInputNames(Map<String, String> statInputNames) {
         this.statInputNames = statInputNames;
+    }
+
+    public String getTeamValidationMsg() {
+        return teamValidationMsg;
+    }
+
+    public void setTeamValidationMsg(String teamValidationMsg) {
+        this.teamValidationMsg = teamValidationMsg;
     }
 }
 

@@ -2,9 +2,11 @@ package com.jhonarias91;
 
 import com.jhonarias91.data.*;
 import com.jhonarias91.models.Pokemon;
+import com.microsoft.playwright.Page;
 import org.junit.jupiter.api.*;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PokemonTeamBuilderTest extends BaseTest {
@@ -41,6 +43,7 @@ public class PokemonTeamBuilderTest extends BaseTest {
         teamBuilderPage.goToCreateTeam();
         //Choose the format and generation
         teamBuilderPage.enterGenAndFormat(data.getGen(), data.getFormat());
+        Page.ScreenshotOptions screenshotOptions = new Page.ScreenshotOptions();
 
         for (Pokemon currentPokemon : data.getTeam()) {
             teamBuilderPage.goToAddNewPokemon();
@@ -58,13 +61,18 @@ public class PokemonTeamBuilderTest extends BaseTest {
             statPage.typeEvs(currentPokemon.getEvs());
             String remainingEvs = statPage.getRemainingEvs();
 
+            screenshotOptions.setPath(Paths.get("src/test/resources/"+currentPokemon.getName()+ ".png"));
+            super.page.screenshot(screenshotOptions);
+
             Assertions.assertEquals("0", remainingEvs);
             pokemonSearchPage.goToteam();
         }
+        screenshotOptions.setPath(Paths.get("src/test/resources/allTeam.png"));
+        super.page.screenshot(screenshotOptions);
 
         teamBuilderPage.validateTeam();
-        Assertions.assertEquals(String.format("Your team is valid for [%s] %s.",
-                data.getGen(), data.getFormat()), teamBuilderPage.getPopUpText());
+        Assertions.assertEquals(String.format("%s [%s] %s.",
+               data.getTeamValidationMsg(), data.getGen(), data.getFormat()), teamBuilderPage.getPopUpText());
 
     }
 

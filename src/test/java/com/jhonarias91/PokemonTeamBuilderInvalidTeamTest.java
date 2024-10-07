@@ -63,10 +63,7 @@ public class PokemonTeamBuilderInvalidTeamTest extends BaseTest {
         }
 
         teamBuilderPage.validateTeam();
-        Assertions.assertEquals("Your team was rejected for the following reasons:\n" +
-                        "\n" +
-                        "- Darkrai can't learn Stone Edge.", teamBuilderPage.getPopUpText());
-
+        Assertions.assertEquals(data.getTeamValidationMsg(), teamBuilderPage.getPopUpText());
     }
 
 }
